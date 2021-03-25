@@ -1,16 +1,21 @@
-# social_ephrom
+App Social Ephrom
 
-A new Flutter application.
+<img src="https://github.com/matheusresende7/social_ephrom/blob/master/screenshots/Screenshot_20210325-192727.jpg" alt="Imagem 1" width="400"/>
 
-## Getting Started
+<img src="https://github.com/matheusresende7/social_ephrom/blob/master/screenshots/Screenshot_20210325-192714.jpg" alt="Imagem 2" width="400"/>
 
-This project is a starting point for a Flutter application.
+<img src="https://github.com/matheusresende7/social_ephrom/blob/master/screenshots/Screenshot_20210325-192245.jpg" alt="Imagem 3" width="400"/>
 
-A few resources to get you started if this is your first Flutter project:
+<img src="https://github.com/matheusresende7/social_ephrom/blob/master/screenshots/Screenshot_20210325-192322.jpg" alt="Imagem 4" width="400"/>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<img src="https://github.com/matheusresende7/social_ephrom/blob/master/screenshots/Screenshot_20210325-192339.jpg" alt="Imagem 5" width="400"/>
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="https://github.com/matheusresende7/social_ephrom/blob/master/screenshots/Screenshot_20210325-192344.jpg" alt="Imagem 6" width="400"/>
+
+<img src="https://github.com/matheusresende7/social_ephrom/blob/master/screenshots/Screenshot_20210325-192349.jpg" alt="Imagem 7" width="400"/>
+
+<img src="https://github.com/matheusresende7/social_ephrom/blob/master/screenshots/Screenshot_20210325-192410.jpg" alt="Imagem 8" width="400"/>
+
+<img src="https://github.com/matheusresende7/social_ephrom/blob/master/screenshots/Screenshot_20210325-192422.jpg" alt="Imagem 9" width="400"/>
+
+
