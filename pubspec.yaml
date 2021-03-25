@@ -27,7 +27,29 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.0
+  cupertino_icons: ^0.1.3
+  get: ^3.25.6 #gerenciamento de estado e programaçao reativa com GETX, e praticamente tudo
+  get_storage: ^1.4.0 #armazenar pequenos dados na memória do celular, como shared preferences
+  local_auth: ^0.6.3+4 #autenticação local
+  flutter_local_notifications: ^4.0.1 #notificações locais
+  url_launcher: ^5.5.3 #abrir links
+  flutter_launcher_icons: ^0.8.1 #colocar o icone do app
+  carousel_slider: ^2.3.1 #carousel
+  curved_navigation_bar: ^0.3.7 #navigation bar animada
+  intl: ^0.16.1 #formatador de dados
+  #transparent_image: ^1.0.0 #imagem transparente
+  http: ^0.12.0
+  brasil_fields: ^0.6.0
+  shimmer: ^1.1.2
+  charts_flutter: ^0.8.1
+  introduction_screen: ^1.0.9 #introductionn screen
+  flutter_speed_dial: ^1.2.5 #floating action button expansed
+  share: ^0.6.5+4 #compartilhar arquivos e dados
+  pdf: ^2.0.0 #pdf
+  printing: ^4.0.0 #imprimir e criar arquivos
+  timeline_tile: ^1.0.0 #passo a passo
+  delayed_display: ^1.1.0 #animaçao
+
 
 dev_dependencies:
   flutter_test:
@@ -74,3 +96,8 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_icons:
+  android: true
+  ios: true
+  #image_path: "images/Icone_1080_Azul.png"

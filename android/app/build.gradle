@@ -25,7 +25,7 @@ apply plugin: 'com.android.application'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
     lintOptions {
         disable 'InvalidPackage'
@@ -35,7 +35,10 @@ android {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "mdr.social_ephrom"
         minSdkVersion 16
-        targetSdkVersion 29
+        targetSdkVersion 30
+        versionCode 1 //AQUI QUE SE RESOLVE O ERRO PARA ATUALIZAR O GOOGLE<<<<<<<<<<<<<<<<
+        versionName '1.0.0'
+        multiDexEnabled true
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -51,4 +54,8 @@ android {
 
 flutter {
     source '../..'
+}
+
+dependencies {
+    implementation 'com.android.support:multidex:1.0.3'
 }
