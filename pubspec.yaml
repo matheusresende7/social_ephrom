@@ -37,7 +37,7 @@ dependencies:
   carousel_slider: ^2.3.1 #carousel
   curved_navigation_bar: ^0.3.7 #navigation bar animada
   intl: ^0.16.1 #formatador de dados
-  #transparent_image: ^1.0.0 #imagem transparente
+  transparent_image: ^1.0.0 #imagem transparente
   http: ^0.12.0
   brasil_fields: ^0.6.0
   shimmer: ^1.1.2

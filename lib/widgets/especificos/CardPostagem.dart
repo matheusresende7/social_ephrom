@@ -6,6 +6,7 @@ import 'package:social_ephrom/widgets/gerais/IconText.dart';
 import 'package:social_ephrom/widgets/gerais/IconTextInvert.dart';
 import 'package:social_ephrom/widgets/gerais/PopupMenuItemPadrao.dart';
 import 'package:social_ephrom/widgets/gerais/SnackBarUndoPadrao.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class CardPostagem extends StatelessWidget {
 
@@ -37,7 +38,7 @@ class CardPostagem extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Card(
-      elevation: 6,
+      elevation: 4,
       color: Theme.of(context).accentColor,
       margin: const EdgeInsets.fromLTRB(10, 12, 10, 12),
       shape: RoundedRectangleBorder(
@@ -81,9 +82,9 @@ class CardPostagem extends StatelessWidget {
                                 children: [
 
                                   ClipOval(
-                                    child: Image.network(
-                                      this.imagem,
-                                      width: 55,
+                                    child: FadeInImage.memoryNetwork(
+                                      placeholder: kTransparentImage,
+                                      image: this.imagem,
                                       height: 55,
                                       fit: BoxFit.cover,
                                     ),

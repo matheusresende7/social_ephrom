@@ -5,10 +5,14 @@ import 'package:flutter/services.dart';
 import 'package:get/state_manager.dart';
 import 'package:get/get.dart';
 import 'package:social_ephrom/controllers/navegacao/HomeController.dart';
+import 'package:social_ephrom/repositories/Mocky.dart';
 import 'package:social_ephrom/widgets/especificos/BottomSheetFiltros.dart';
 import 'package:social_ephrom/widgets/especificos/CardPostagem.dart';
 
 class Home extends StatelessWidget {
+
+  Mocky mocky = Mocky();
+
   @override
   Widget build(BuildContext context) {
 
@@ -40,291 +44,292 @@ class Home extends StatelessWidget {
               ),
             ),
 
-            body: CustomScrollView(
-              controller: _.scrollController,
-              slivers: [
+            body: RefreshIndicator(
+              backgroundColor: Theme.of(context).accentColor,
+              color: Theme.of(context).primaryColor,
+              displacement: 205,
+              strokeWidth: 2,
+              onRefresh: mocky.refreshMetodo,
+              child: CustomScrollView(
+                controller: _.scrollController,
+                physics: BouncingScrollPhysics(),
+                slivers: [
 
-                SliverAppBar(
-                    automaticallyImplyLeading: false,
-                    expandedHeight: 100,
-                    floating: false,
-                    pinned: false,
-                    snap: false,
-                    elevation: 0,
-                    backgroundColor: Theme.of(context).primaryColor,
-                    brightness: Brightness.light,
-                    flexibleSpace: SafeArea(
-                        child: FlexibleSpaceBar(
-                          background: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
+                  SliverAppBar(
+                      automaticallyImplyLeading: false,
+                      expandedHeight: 100,
+                      floating: false,
+                      pinned: false,
+                      snap: false,
+                      elevation: 0,
+                      backgroundColor: Theme.of(context).primaryColor,
+                      brightness: Brightness.light,
+                      flexibleSpace: SafeArea(
+                          child: FlexibleSpaceBar(
+                            background: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
 
-                                  Row(
-                                    children: [
+                                    Row(
+                                      children: [
 
-                                      Container(
-                                        height: 70,
-                                        width: 70,
-                                        child: Card (
-                                          elevation: 8,
-                                          shape: RoundedRectangleBorder (borderRadius: BorderRadius.circular(12)),
-                                          color: Theme.of(context).accentColor,
-                                          child: Align(
-                                            alignment: Alignment(0, -0.5),
-                                            child: Text (
-                                              'o',
-                                              style: TextStyle(
-                                                fontSize: 45,
-                                                fontWeight: FontWeight.bold,
-                                                color: Theme.of(context).primaryColor,
+                                        Container(
+                                          height: 70,
+                                          width: 70,
+                                          child: Card (
+                                            elevation: 8,
+                                            shape: RoundedRectangleBorder (borderRadius: BorderRadius.circular(12)),
+                                            color: Theme.of(context).accentColor,
+                                            child: Align(
+                                              alignment: Alignment(0, -0.5),
+                                              child: Text (
+                                                'o',
+                                                style: TextStyle(
+                                                  fontSize: 45,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Theme.of(context).primaryColor,
+                                                ),
                                               ),
                                             ),
                                           ),
                                         ),
-                                      ),
 
-                                      SizedBox (width: 10,),
+                                        SizedBox (width: 10,),
 
-                                      Text (
-                                        'Social Ephrom',
-                                        style: TextStyle(
-                                          fontSize: 23,
-                                          fontWeight: FontWeight.bold,
-                                          color: Theme.of(context).accentColor,
-                                          letterSpacing: 2,
-                                        ),
-                                        textAlign: TextAlign.start,
-                                      ),
-
-                                    ],
-                                  ),
-
-                                ],
-                              ),
-                            ],
-                          ),
-                        )
-                    )
-                ),
-
-                SliverAppBar(
-                  automaticallyImplyLeading: false,
-                  floating: false,
-                  pinned: true,
-                  snap: false,
-                  backgroundColor: Colors.transparent,
-                  brightness: Brightness.light,
-                  elevation: 0,
-                  expandedHeight: 0,
-                  flexibleSpace: Container(
-                    height: 80,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(50),
-                        bottomLeft: Radius.circular(50),
-                      ),
-                      color: Theme.of(context).primaryColor,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 3,
-                          blurRadius: 3,
-                          offset: Offset(2, 3),
-                        ),
-                      ],
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Container(
-                            height: 55,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              color: Theme.of(context).accentColor,
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-
-                                  Icon(
-                                    Icons.search,
-                                    size: 28,
-                                    color: Theme.of(context).primaryColor,
-                                  ),
-
-                                  Container(
-                                    width: 180,
-                                    child: Padding(
-                                      padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                      child: TextFormField(
-                                        controller: _.controllerPesquisa,
-                                        textInputAction: TextInputAction.search,
-                                        onChanged: (valor) {_.opacityItens();},
-                                        style: TextStyle(
-                                          fontSize: 21,
-                                          color: Theme.of(context).primaryColor,
-                                        ),
-                                        decoration: InputDecoration(
-                                          hintText: 'Pesquisar...',
-                                          labelStyle: TextStyle(
-                                            fontSize: 21,
-                                            color: Theme.of(context).primaryColor,
+                                        Text (
+                                          'Social Ephrom',
+                                          style: TextStyle(
+                                            fontSize: 23,
+                                            fontWeight: FontWeight.bold,
+                                            color: Theme.of(context).accentColor,
+                                            letterSpacing: 2,
                                           ),
-                                          border: InputBorder.none,
+                                          textAlign: TextAlign.start,
                                         ),
-                                      ),
-                                    ),
-                                  ),
 
-                                  Opacity(
-                                    opacity: _.apagarEBarraVisiveis,
-                                    child: IconButton(
-                                      icon: Icon(
-                                        Icons.close,
-                                        size: 28,
-                                        color: Theme.of(context).disabledColor,
-                                      ),
-                                      onPressed: _.apagarEBarraVisiveisBool
-                                          ? () {_.apagarPesquisa();}
-                                          : null,
+                                      ],
                                     ),
-                                  ),
 
-                                  Opacity(
-                                    opacity: _.apagarEBarraVisiveis,
-                                    child: Container(
-                                      color: Theme.of(context).disabledColor,
-                                      width: 1,
-                                      height: 25,
-                                    ),
-                                  ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          )
+                      )
+                  ),
 
-                                  IconButton(
-                                    icon: Icon(
-                                      Icons.filter_list,
+                  SliverAppBar(
+                    automaticallyImplyLeading: false,
+                    floating: false,
+                    pinned: true,
+                    snap: false,
+                    backgroundColor: Colors.transparent,
+                    brightness: Brightness.light,
+                    elevation: 0,
+                    expandedHeight: 0,
+                    flexibleSpace: Container(
+                      height: 80,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(50),
+                          bottomLeft: Radius.circular(50),
+                        ),
+                        color: Theme.of(context).primaryColor,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 2,
+                            blurRadius: 2,
+                            offset: Offset(2, 2),
+                          ),
+                        ],
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Container(
+                              height: 55,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30),
+                                color: Theme.of(context).accentColor,
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+
+                                    Icon(
+                                      Icons.search,
                                       size: 28,
                                       color: Theme.of(context).primaryColor,
                                     ),
-                                    onPressed: () {
-                                      Get.bottomSheet(
-                                        BottomSheetFiltros(),
-                                        isScrollControlled: true,
-                                        backgroundColor: Theme.of(context).accentColor,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.only(
-                                            topLeft: Radius.circular(40),
-                                            topRight: Radius.circular(40),
+
+                                    Container(
+                                      width: 180,
+                                      child: Padding(
+                                        padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                        child: TextFormField(
+                                          controller: _.controllerPesquisa,
+                                          textInputAction: TextInputAction.search,
+                                          onChanged: (valor) {_.opacityItens();},
+                                          style: TextStyle(
+                                            fontSize: 21,
+                                            color: Theme.of(context).primaryColor,
+                                          ),
+                                          decoration: InputDecoration(
+                                            hintText: 'Pesquisar...',
+                                            labelStyle: TextStyle(
+                                              fontSize: 21,
+                                              color: Theme.of(context).primaryColor,
+                                            ),
+                                            border: InputBorder.none,
                                           ),
                                         ),
-                                      );
-                                    },
-                                  ),
+                                      ),
+                                    ),
 
-                                ],
+                                    Opacity(
+                                      opacity: _.apagarEBarraVisiveis,
+                                      child: IconButton(
+                                        icon: Icon(
+                                          Icons.close,
+                                          size: 28,
+                                          color: Theme.of(context).disabledColor,
+                                        ),
+                                        onPressed: _.apagarEBarraVisiveisBool
+                                            ? () {_.apagarPesquisa();}
+                                            : null,
+                                      ),
+                                    ),
+
+                                    Opacity(
+                                      opacity: _.apagarEBarraVisiveis,
+                                      child: Container(
+                                        color: Theme.of(context).disabledColor,
+                                        width: 1,
+                                        height: 25,
+                                      ),
+                                    ),
+
+                                    IconButton(
+                                      icon: Icon(
+                                        Icons.filter_list,
+                                        size: 28,
+                                        color: Theme.of(context).primaryColor,
+                                      ),
+                                      onPressed: () {
+                                        Get.bottomSheet(
+                                          BottomSheetFiltros(),
+                                          isScrollControlled: true,
+                                          backgroundColor: Theme.of(context).accentColor,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(40),
+                                              topRight: Radius.circular(40),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ),
+
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
 
-                SliverList(
-                    delegate: SliverChildListDelegate([
-                      Column (
-                        children: [
+                  SliverList(
+                      delegate: SliverChildListDelegate([
+                        Column (
+                          children: [
 
-                          SizedBox(height: 10,),
+                            SizedBox(height: 10,),
 
-                          CardPostagem (
-                            nome: _.nome1,
-                            dataHorario: _.dataHorario1,
-                            imagem: _.imagem1,
-                            plataforma: _.plataforma1,
-                            area: _.area1,
-                            texto: _.texto1,
-                            curtidas: _.curtidas1,
-                            comentarios: _.comentarios1,
-                            compartilhamentos: _.compartilhamentos1,
-                          ),
+                            SizedBox (
+                              child: FutureBuilder(
+                                  future: mocky.obterPostagensAPI(),
+                                  builder: (context, snapshot) {
+                                    switch (snapshot.connectionState) {
+                                      case ConnectionState.waiting:
+                                      case ConnectionState.none:
 
-                          CardPostagem (
-                            nome: _.nome2,
-                            dataHorario: _.dataHorario2,
-                            imagem: _.imagem2,
-                            plataforma: _.plataforma2,
-                            area: _.area2,
-                            texto: _.texto2,
-                            curtidas: _.curtidas2,
-                            comentarios: _.comentarios2,
-                            compartilhamentos: _.compartilhamentos2,
-                          ),
+                                        return SizedBox(
+                                          height: 450,
+                                          width: 450,
+                                          child: Center(
+                                            child: Container(
+                                              height: 50,
+                                              width: 50,
+                                              child: CircularProgressIndicator(
+                                                backgroundColor: Theme.of(context).disabledColor,
+                                                valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),
+                                                strokeWidth: 3,
+                                              ),
+                                            ),
+                                          ),
+                                        );
 
-                          CardPostagem (
-                            nome: _.nome3,
-                            dataHorario: _.dataHorario3,
-                            imagem: _.imagem3,
-                            plataforma: _.plataforma3,
-                            area: _.area3,
-                            texto: _.texto3,
-                            curtidas: _.curtidas3,
-                            comentarios: _.comentarios3,
-                            compartilhamentos: _.compartilhamentos3,
-                          ),
+                                      default:
 
-                          CardPostagem (
-                            nome: _.nome4,
-                            dataHorario: _.dataHorario4,
-                            imagem: _.imagem4,
-                            plataforma: _.plataforma4,
-                            area: _.area4,
-                            texto: _.texto4,
-                            curtidas: _.curtidas4,
-                            comentarios: _.comentarios4,
-                            compartilhamentos: _.compartilhamentos4,
-                          ),
+                                        if(snapshot.hasError) return Container(
+                                          child: Center(
+                                            child: Text(
+                                                'Tivemos algum problema ao carregar os dados.\n '
+                                                'Por favor, tente novamente.',
+                                              style: TextStyle(
+                                                fontSize: 22,
+                                                color: Theme.of(context).textSelectionColor,
+                                              ),
+                                            ),
+                                          ),
+                                        );
 
-                          CardPostagem (
-                            nome: _.nome5,
-                            dataHorario: _.dataHorario5,
-                            imagem: _.imagem5,
-                            plataforma: _.plataforma5,
-                            area: _.area5,
-                            texto: _.texto5,
-                            curtidas: _.curtidas5,
-                            comentarios: _.comentarios5,
-                            compartilhamentos: _.compartilhamentos5,
-                          ),
+                                        else return ListView.builder(
+                                            physics: NeverScrollableScrollPhysics(),
+                                            shrinkWrap: true,
+                                            itemCount: snapshot.data['Result'].length,
+                                            itemBuilder: (context, index) {
 
-                          CardPostagem (
-                            nome: _.nome6,
-                            dataHorario: _.dataHorario6,
-                            imagem: _.imagem6,
-                            plataforma: _.plataforma6,
-                            area: _.area6,
-                            texto: _.texto6,
-                            curtidas: _.curtidas6,
-                            comentarios: _.comentarios6,
-                            compartilhamentos: _.compartilhamentos6,
-                          ),
+                                              return CardPostagem(
+                                                nome: snapshot.data['Result'][index]['AutorNome'] ?? '',
+                                                dataHorario: snapshot.data['Result'][index]['DataHora'] ?? '',
+                                                imagem: snapshot.data['Result'][index]['AutorImageUrl'] ?? '',
+                                                plataforma: 'Android',
+                                                area: 'Frontend',
+                                                texto: snapshot.data['Result'][index]['Texto'] ?? '',
+                                                curtidas: '12',
+                                                comentarios: snapshot.data['Result'][index]['Respostas'].toString() ?? 0.toString(),
+                                                compartilhamentos: '4',
+                                              );
 
-                          SizedBox (height: 80,),
+                                            },
+                                        );
 
-                        ],
-                      )
-                    ])
-                ),
+                                    }
+                                  }
+                              ),
+                            ),
 
-              ],
+                            SizedBox(height: 10,),
+
+                          ],
+                        )
+                      ])
+                  ),
+
+                ],
+              ),
             ),
 
           );

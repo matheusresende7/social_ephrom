@@ -16,7 +16,7 @@ class _IntroScreenState extends State<IntroScreen> {
       contentPage(
         text: 'Compartilhe suas ideias',
         icon: Icons.lightbulb,
-        content: 'Compartilhe suas ideias e acompanhe o que seus colegas estão pensando.',
+        content: 'E acompanhe o que seus colegas estão pensando.',
       ),
 
       contentPage(
